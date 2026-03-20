@@ -1,0 +1,62 @@
+# Mock system app listing for app hub bootstrap
+# Each entry must include id, package, folderPath, scripts, dependencies where needed.
+
+- id: "nta189_node-red_2.0.0"
+  name: "Node-RED"
+  version: "2.0.0"
+  package: "node-red.7z"
+  folderPath: ""
+  type: "app"
+  os:
+    linux:
+      command: "node-red"
+  autoRun: false
+  autoStart: false
+  required: false
+  scripts:
+    beforeUnzip: "echo beforeUnzip nodered"
+    afterUnzip: "echo afterUnzip nodered"
+    beforeMove: ""
+    afterMove: ""
+    beforeRun: "echo beforeRun nodered"
+    afterRun: "echo afterRun nodered"
+  dependencies: []
+
+- id: "_apps/portal/1.2.3"
+  name: "Admin Portal"
+  version: "1.2.3"
+  package: "portal.7z"
+  folderPath: "_apps/portal/1.2.3"
+  type: "web"
+  url: "https://app-hub.local/portal"
+  autoRun: true
+  autoStart: true
+  required: false
+  scripts:
+    beforeUnzip: ""
+    afterUnzip: ""
+    beforeMove: ""
+    afterMove: ""
+    beforeRun: ""
+    afterRun: ""
+  dependencies:
+    - id: "_apps/portal-helper/1.0.0"
+      name: "Portal Helper"
+      version: "1.0.0"
+      package: "portal-helper.7z"
+      folderPath: "_apps/portal-helper/1.0.0"
+      type: "command"
+      os:
+        linux:
+          command: "./portal-helper"
+      autoRun: false
+      autoStart: false
+      required: false
+      scripts:
+        beforeUnzip: ""
+        afterUnzip: ""
+        beforeMove: ""
+        afterMove: ""
+        beforeRun: ""
+        afterRun: ""
+      dependencies: []
